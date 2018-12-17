@@ -1,0 +1,44 @@
+一、rosrun xacro xacro.py xxx.urdf.xacro > xxx.urdf
+
+
+二、urdf转xacro,直接编辑文件
+
+<?xml version="1.0"?>  
+<robot name="rbt—name" xmlns:xacro="http://ros.org/wiki/xacro">
+将urdf的链接与关节直接粘贴进来。
+</robot>
+
+
+添加link和joint
+  <link name="world"/>
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint>
+
+
+添加gazebo传动标签
+   <xacro:macro name="transmission_block" params="joint_name">
+	  <transmission name="tran1">
+	    <type>transmission_interface/SimpleTransmission</type>
+	    <joint name="${joint_name}">
+	      <hardwareInterface>PositionJointInterface</hardwareInterface>
+	    </joint>
+	    <actuator name="motor1">
+	      <hardwareInterface>PositionJointInterface</hardwareInterface>
+	      <mechanicalReduction>1</mechanicalReduction>
+	    </actuator>
+	  </transmission>
+   </xacro:macro>
+
+   <xacro:transmission_block joint_name="joint1"/>
+   <xacro:transmission_block joint_name="joint2"/>
+   <xacro:transmission_block joint_name="joint3"/>
+   <xacro:transmission_block joint_name="joint4"/>
+   <xacro:transmission_block joint_name="joint5"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/simrbtsix</robotNamespace>
+    </plugin>
+  </gazebo>

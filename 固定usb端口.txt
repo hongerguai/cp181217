@@ -1,0 +1,11 @@
+固定usb端口号
+
+cd /etc/udev 下查看rule.d文件,看硬件名称
+1.lsusb 查明设备id
+2.新建rule.d文件
+KERNEL=="ttyACM*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0777", SYMLINK+="arduino"
+ 有的设备是"ttyUSB*"
+ 
+ 
+ 重启端口(重新拔插USB设备)
+sudo /etc/init.d/udev restart
