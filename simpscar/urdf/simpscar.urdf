@@ -1,0 +1,275 @@
+<robot
+  name="simpscar">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.14527011418202 0.142473394521465 1.93638329184614"
+        rpy="0 0 0" />
+      <mass
+        value="51.0301046625672" />
+      <inertia
+        ixx="1.07638508028542"
+        ixy="-3.44197043204807E-33"
+        ixz="-8.1647703329057E-34"
+        iyy="1.39194175034633"
+        iyz="3.5042528661299E-17"
+        izz="1.07638508028542" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-0.47507010053154 0.0499999999999999 2.66453525910038E-15"
+        rpy="0 0 0" />
+      <mass
+        value="46.9166231244859" />
+      <inertia
+        ixx="0.807514951177449"
+        ixy="-4.63852325044824E-15"
+        ixz="4.04398736719713E-14"
+        iyy="8.25848894774734"
+        iyz="-5.24577614957422E-16"
+        izz="7.52916836844405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="2.1453 -1.9364 0.3"
+      rpy="1.5708 3.3594E-17 0.58074" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.389138149497542 -1.63487001714202E-11 0.049999999999869"
+        rpy="0 0 0" />
+      <mass
+        value="36.5491195610772" />
+      <inertia
+        ixx="0.441205835958547"
+        ixy="1.58939958416759E-10"
+        ixz="8.32234711463816E-13"
+        iyy="4.42305513062327"
+        iyz="-9.66208464007407E-14"
+        izz="4.80334576731353" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="-1 0.1 0"
+      rpy="1.5708 -0.23814 -3.1416" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.194560668226061 -4.44089209850063E-16 0.0499999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="17.2580297498845" />
+      <inertia
+        ixx="0.106455677168101"
+        ixy="2.08166817117217E-17"
+        ixz="-8.08221127598958E-18"
+        iyy="0.687049698723533"
+        iyz="1.04049811742965E-17"
+        izz="0.764741992975159" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="prismatic">
+    <origin
+      xyz="0.9 0 0.1"
+      rpy="-9.4434E-28 -9.1118E-28 -0.18231" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="0 4.44089209850063E-16 -0.159083969465649"
+        rpy="0 0 0" />
+      <mass
+        value="1.23464591286079" />
+      <inertia
+        ixx="0.0105581514268996"
+        ixy="0"
+        ixz="-3.63989180509497E-19"
+        iyy="0.0105581514268996"
+        iyz="4.33386920117036E-19"
+        izz="0.000856358887460409" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simpscar/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="prismatic">
+    <origin
+      xyz="0.5 0 0.00034262"
+      rpy="-3.6704E-16 -2.8526E-16 0.71154" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
